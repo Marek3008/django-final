@@ -1,0 +1,16 @@
+modely - tema (nazov, popis, konzultant, student - nepovinny, odbor, dostupnost -> (volne, cakajuce, obsadene, nezalezi), ak obsadene -> pocet konzultacii);
+	student (meno, priezvisko, trieda, email, heslo); 
+
+form - nazov temy, veduci, odbor, dostupnost;
+
+usporiadanie - najprv volne;
+
+ked som na ucitelovi tak vidim vsetky jeho temy;
+ked som na studentovi tak vidim jeho temu;
+ked som na teme tak mi vypise tu temu;
+
+statistiky - pocet tem, schvalene temy, cakajuce temy, volne temy, ?
+
+vytvaranie temy - form - nazov, kategoria/odbor, popis
+
+nazov projektu - priezvisko bez diakritky
