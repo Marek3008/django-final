@@ -27,14 +27,35 @@ class Teacher(models.Model):
 class Theme(models.Model):
 
     STATES = (
-        ("available", "Available"),
-        ("unavailable", "Unavailable"),
-        ("pending", "Pending")
+        ("dostupné", "Dostupné"),
+        ("nedostupné", "Nedostupné"),
+        ("čakajúce", "Čakajúce")
+    )
+
+    SECTIONS = (
+        ("problematika voľného času", "Problematika voľného času"),
+        ("matematika, fyzika", "Matematika, fyzika"),
+        ("chémia, potravinárstvo", "Chémia, potravinárstvo"),
+        ("biológia", "Biológia"),
+        ("životné prostredie, geografia, geológia", "Životné prostredie, geografia, geológia"),
+        ("zdravotníctvo a farmakológia", "Zdravotníctvo a farmakológia"),
+        ("pôdohospodárstvo (poľnohospodárstvo, lesné a vodné hospodárstvo)", "Pôdohospodárstvo (poľnohospodárstvo, lesné a vodné hospodárstvo)"),
+        ("cestovný ruch, hotelierstvo, gastronómia", "Cestovný ruch, hotelierstvo, gastronómia"),
+        ("strojárstvo, hutníctvo, doprava", "Strojárstvo, hutníctvo, doprava"),
+        ("stavebníctvo, geodézia, kartografia", "Stavebníctvo, geodézia, kartografia"),
+        ("informatika", "Informatika"),
+        ("elektrotechnika, hardware, mechatronika", "Elektrotechnika, hardware, mechatronika"),
+        ("história, filozofia, právne vedy", "História, filozofia, právne vedy"),
+        ("tvorba učebných pomôcok, didaktické technológie", "Tvorba učebných pomôcok, didaktické technológie"),
+        ("ekonomika a riadenie", "Ekonomika a riadenie"),
+        ("teória kultúry, umenie, umelecká, odevná tvorba", "Teória kultúry, umenie, umelecká, odevná tvorba"),
+        ("pedagogika, psychológia,  sociológia", "Pedagogika, psychológia,  sociológia")
     )
 
     consultant = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=40)
     description = models.TextField()
+    section = models.CharField(max_length=64, choices=SECTIONS)
     state = models.CharField(max_length=11, choices=STATES)
     consNum = models.IntegerField(default=0)

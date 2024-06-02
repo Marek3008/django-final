@@ -1,0 +1,45 @@
+{% extends "layouts/app.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "css/index.css" %}">
+{% endblock  %}
+
+{% block content %}
+
+<form class="search-form" action="">
+    <input class="search-form--item" type="text" name="name" placeholder="Názov">
+    <select class="search-form--item" name="consultant" id="">
+        <option class="default-option" value="">Konzultant</option>
+        {% for consultant in consultants %}
+        <option class="value" value="{{ consultant.id }}">{{ consultant.name }} {{ consultant.surname }}</option>
+        {% endfor %}
+    </select>
+    <select class="search-form--item" name="section" id="">
+        <option class="default-option" value="">Odbor</option>
+        {% for section in sections %}
+        <option class="value" value="{{ section.0 }}">{{ forloop.counter }} - {{ section.1 }}</option>
+        {% endfor %}
+    </select>
+    <select class="search-form--item" name="state" id="">
+        <option class="default-option" value="">Stav</option>
+        {% for state in states %}
+        <option class="value" value="{{ state.0 }}">{{ state.1 }}</option>
+        {% endfor %}
+    </select>
+</form>
+<div class="divider"></div>
+<div class="themes">
+    {% for theme in themes %}
+    <div class="theme">
+        <h2>{{ theme.name }}</h2>
+        <p>{{ theme.description }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% block scripts %}
+<script src="{% static "js/index.js" %}"></script>
+{% endblock  %}
+
+{% endblock %}

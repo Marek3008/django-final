@@ -1,0 +1,60 @@
+form {
+    font-size: 2rem;
+    color: #495057;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
+    margin-bottom: 5rem;
+}
+
+input,
+select {
+    background-color: #9BFADE;
+}
+
+select {
+    color: #495057
+}
+
+select.default-selected {
+    color: gray;
+}
+
+.search-form--item {
+    border: solid #099268 0.2rem;
+    border-radius: 0.9rem;
+    padding: 1.5rem;
+
+    flex-grow: 0;
+}
+
+.default-option {
+    color: gray;
+}
+
+.value {
+    color: #495057;
+}
+
+.divider {
+    height: 0.3rem;
+    width: 80%;
+    /* background-color: #4263eb; */
+    background-image: linear-gradient(to right, white, 20%, #4263eb, 80%, white);
+}
+
+.themes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7rem;
+
+    margin-top: 5rem;
+}
+
+.theme h2 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #495057;
+}
