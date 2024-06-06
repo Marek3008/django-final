@@ -17,4 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
             select.classList.remove('default-selected');
         }
     });
+
+
+
+
+
 });

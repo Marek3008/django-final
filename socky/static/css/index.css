@@ -39,9 +39,8 @@ select.default-selected {
 }
 
 .divider {
-    height: 0.3rem;
+    height: 0.2rem;
     width: 80%;
-    /* background-color: #4263eb; */
     background-image: linear-gradient(to right, white, 20%, #4263eb, 80%, white);
 }
 
@@ -53,8 +52,24 @@ select.default-selected {
     margin-top: 5rem;
 }
 
+.theme {
+    color: #495057;
+}
+
 .theme h2 {
     font-size: 3rem;
     text-transform: uppercase;
     color: #495057;
+
+    margin-bottom: 1rem;
+}
+
+.theme-description {
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.theme-consultant {
+    font-size: 1.7rem;
 }

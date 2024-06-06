@@ -15,6 +15,9 @@ class Student(models.Model):
     email = models.EmailField(max_length=30)
     password = models.CharField(max_length=40)
 
+    def __str__(self):
+        return f"{self.name} {self.surname}"
+
 
 class Teacher(models.Model):
 
@@ -22,6 +25,9 @@ class Teacher(models.Model):
     surname = models.CharField(max_length=15)
     email = models.EmailField(max_length=30)
     password = models.CharField(max_length=40)
+
+    def __str__(self):
+        return f"{self.name} {self.surname}"
 
 
 class Theme(models.Model):
@@ -59,3 +65,6 @@ class Theme(models.Model):
     section = models.CharField(max_length=64, choices=SECTIONS)
     state = models.CharField(max_length=11, choices=STATES)
     consNum = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.name}"
