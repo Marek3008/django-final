@@ -1,47 +1,55 @@
 {% extends "layouts/app.html" %}
 {% load static %}
 
-{% block meta %}
-
-{% endblock  %}
-
 {% block styles %}
 <link rel="stylesheet" href="{% static "css/index.css" %}">
 {% endblock  %}
 
 {% block content %}
 
-<form class="search-form" action="/" method="POST">
+<form class="search-form">
     {% csrf_token %}
-    <input class="search-form--item" type="text" name="name" placeholder="Názov">
-    <select class="search-form--item" name="consultant">
-        <option class="default-option" value="">Konzultant</option>
+    <input id="nameInput" class="search-form--item" type="text" name="name" placeholder="Názov">
+    <select id="consultantSelect" class="search-form--item" name="consultant">
+        <option class="default-option" value="all">Konzultant</option>
         {% for consultant in consultants %}
-        <option class="value" value="{{ consultant.id }}">{{ consultant.name }} {{ consultant.surname }}</option>
+        <option class="value" value="{{ consultant.name }} {{ consultant.surname }}">{{ consultant.name }} {{ consultant.surname }}</option>
         {% endfor %}
     </select>
-    <select class="search-form--item" name="section">
-        <option class="default-option" value="">Odbor</option>
+    <select id="sectionSelect" class="search-form--item" name="section">
+        <option class="default-option" value="all">Odbor</option>
         {% for section in sections %}
         <option class="value" value="{{ section.0 }}">{{ forloop.counter }} - {{ section.1 }}</option>
         {% endfor %}
     </select>
-    <select class="search-form--item" name="state">
-        <option class="default-option" value="">Stav</option>
+    <select id="stateSelect" class="search-form--item" name="state">
+        <option class="default-option" value="all">Stav</option>
         {% for state in states %}
         <option class="value" value="{{ state.0 }}">{{ state.1 }}</option>
         {% endfor %}
     </select>
-    <input type="submit" value="Hľadať">
+    <button id="resetBtn"></button>
 </form>
 <div class="divider"></div>
 <div class="themes">
     {% for theme in themes %}
     <div class="theme">
-        <h2>{{ theme.name }}</h2>
+        <h2 class="theme-name">{{ theme.name }}</h2>
         <p class="theme-description">{{ theme.description }}</p>
-        <p class="theme-consultant"><strong>Konzultant: </strong>{{ theme.consultant }}</p>
-        <p class="theme-student"><strong>Študent: </strong>{{ theme.student }}</p>
+        <div class="theme-info">
+            <p class="theme-section" data-value="{{ theme.section }}"><strong>Odbor: </strong>{{ theme.section }}</p>
+            <p class="theme-consultant" data-value="{{ theme.consultant }}"><strong>Konzultant: </strong>{{ theme.consultant }}</p>
+            <p class="theme-student"><strong>Študent: </strong>{{ theme.student }}</p>
+        </div>
+        <p class="theme-state 
+            {% if theme.state == "Dostupné" %}
+            available
+            {% elif theme.state == "Nedostupné" %}
+            unavailable
+            {% else %}
+            pending
+            {% endif %}" 
+        data-value="{{ theme.state }}">{{ theme.state }}</p>
     </div>
     {% endfor %}
 </div>

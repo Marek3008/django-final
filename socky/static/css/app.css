@@ -48,6 +48,7 @@ main {
     top: 0;
     right: 0;
     height: 0.7rem;
+    width: 100%;
 
     background-image: linear-gradient(to right, #4263eb, 80%, #12b886);
 }

@@ -12,6 +12,10 @@ form {
 input,
 select {
     background-color: #9BFADE;
+    
+    &:focus {
+        outline: none;
+    }
 }
 
 select {
@@ -54,6 +58,15 @@ select.default-selected {
 
 .theme {
     color: #495057;
+    position: relative;
+
+    background-color: aquamarine;
+    padding: 3rem;
+    border-radius: 1rem;
+}
+
+.theme-info, .theme-description {
+    margin-left: 0.5rem;
 }
 
 .theme h2 {
@@ -70,6 +83,33 @@ select.default-selected {
     margin-bottom: 1rem;
 }
 
-.theme-consultant {
+.theme-consultant, .theme-student, .theme-section {
     font-size: 1.7rem;
+    margin: 1rem 0;
+}
+
+.theme-state {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    padding: 0.8rem;
+    border-radius: 0.7rem;
+
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.available {
+    color: #00c400;
+    border: solid 0.2rem #00c400;
+}
+
+.unavailable {
+    color: red;
+    border: solid 0.2rem red;
+}
+
+.pending {
+    color: orange;
+    border: solid 0.2rem orange;
 }
