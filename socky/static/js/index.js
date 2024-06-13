@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    function filterThemes(){
+    function filterThemes() {
         const nameFilter = nameInput.value.toLowerCase().trim();
         const consultantFilter = consultantSelect.value;
         const sectionFilter = sectionSelect.value;
@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         themes.forEach((item) => {
             const name = item.querySelector('.theme-name').textContent.toLowerCase();
-            const consultant = item.querySelector('.theme-consultant').dataset.value;
-            const section = item.querySelector('.theme-section').dataset.value;
-            const state = item.querySelector('.theme-state').dataset.value;
+            const consultant = item.querySelector('.theme-consultant').dataset.id;
+            const section = item.querySelector('.theme-section').dataset.id;
+            const state = item.querySelector('.theme-state').dataset.id;
 
 
 
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(stateMatch)
 
 
-            if(nameMatch && consultantMatch && sectionMatch && stateMatch){
+            if (nameMatch && consultantMatch && sectionMatch && stateMatch) {
                 item.style.display = "block";
             }
             else {

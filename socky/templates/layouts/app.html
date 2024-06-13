@@ -9,29 +9,31 @@
     <title>Moja SOČ</title>
 </head>
 <body>
-    <div id="decoration-line" class="decoration-line"></div>
-    <div class="decoration-line2"></div>
-    <header id="header">
-        <nav class="navbar">
-            <div class="page-heading">
-                <h1>moja</h1>
-                <div>
-                    <span class="vertical-heading--part">Stredná</span>
-                    <span class="vertical-heading--part">Odborná</span>
-                    <span class="vertical-heading--part">Činnosť</span>
-                </div>
-            </div>
-            <ul class="navbar-list">
-                <a href=""><li class="navbar-list--item">Registrácia</li></a>
-                <a href=""><li class="navbar-list--item">Odhlásiť sa</li></a>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        {% block content %}
+    <div class="flex-wrapper">
+        <header id="header">
+            <nav class="navbar">
+                <a href="{% url "index" %}">
+                    <div class="page-heading">
+                        <h1>moja</h1>
+                        <div>
+                            <span class="vertical-heading--part">S</span>
+                            <span class="vertical-heading--part">O</span>
+                            <span class="vertical-heading--part">Č</span>
+                        </div>
+                    </div>
+                </a>
+                <ul class="navbar-list">
+                    <a href="{% url "create" %}"><li class="navbar-list--item">Pridať tému</li></a>
+                    <a href="{% url "statistics" %}"><li class="navbar-list--item">Štatistiky</li></a>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            {% block content %}
 
-        {% endblock %}
-    </main>
+            {% endblock %}
+        </main>
+    </div>
     <footer>&copy; CrazyBanas3008</footer>
     {% block scripts %}{% endblock  %}
 </body>

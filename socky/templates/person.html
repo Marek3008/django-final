@@ -1,0 +1,67 @@
+{% extends "layouts/app.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "css/person.css" %}">
+{% endblock  %}
+
+{% block content %}
+{% if teacher %}
+<h1 style="margin-top: 4rem; margin-bottom: 4rem;">Témy učiteľa {{ teacher.name }} {{ teacher.surname }}</h1>
+<div class="themes">
+    {% for theme in themes %}
+    <div class="theme">
+        <h2 class="theme-name">{{ theme.name }}</h2>
+        <p class="theme-description">{{ theme.description }}</p>
+        <div class="theme-info">
+            <p class="theme-section" data-id="{{ theme.section.id }}"><strong>Odbor: </strong>{{ theme.section }}</p>
+            <p class="theme-consultant" data-id="{{ theme.consultant.id }}"><strong>Konzultant: </strong><a class="person-anchor" href="{% url "teacher" id=theme.consultant.id %}">{{ theme.consultant }}</a></p>
+            <p class="theme-student"><strong>Študent: </strong>
+                {% if theme.student %}
+                <a class="person-anchor" href="{% url "student" id=theme.student.id %}">{{ theme.student }}</a>
+                {% else %}
+                -------
+                {% endif %}
+            </p>
+        </div>
+        <p class="theme-state 
+            {% if theme.state.name == "Dostupné" %}
+            available
+            {% elif theme.state.name == "Nedostupné" %}
+            unavailable
+            {% else %}
+            pending
+            {% endif %}" 
+        data-id="{{ theme.state.id }}">{{ theme.state }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% elif student %}
+<h1 style="margin-top: 4rem; margin-bottom: 4rem;">Téma študenta {{ student.name }} {{ student.surname }}</h1>
+<div class="theme">
+    <h2 class="theme-name">{{ theme.name }}</h2>
+    <p class="theme-description">{{ theme.description }}</p>
+    <div class="theme-info">
+        <p class="theme-section" data-id="{{ theme.section.id }}"><strong>Odbor: </strong>{{ theme.section }}</p>
+        <p class="theme-consultant" data-id="{{ theme.consultant.id }}"><strong>Konzultant: </strong><a class="person-anchor" href="{% url "teacher" id=theme.consultant.id %}">{{ theme.consultant }}</a></p>
+        <p class="theme-student"><strong>Študent: </strong>
+            {% if theme.student %}
+            <a class="person-anchor" href="{% url "student" id=student.id %}">{{ theme.student }}</a>
+            {% else %}
+            -------
+            {% endif %}
+        </p>
+    </div>
+    <p class="theme-state 
+        {% if theme.state.name == "Dostupné" %}
+        available
+        {% elif theme.state.name == "Nedostupné" %}
+        unavailable
+        {% else %}
+        pending
+        {% endif %}" 
+    data-id="{{ theme.state.id }}">{{ theme.state }}</p>
+</div>
+{% endif %}
+
+{% endblock  %}

@@ -7,12 +7,13 @@ form {
     gap: 1rem;
 
     margin-bottom: 5rem;
+    margin-top: 4rem;
 }
 
 input,
 select {
     background-color: #9BFADE;
-    
+
     &:focus {
         outline: none;
     }
@@ -46,70 +47,4 @@ select.default-selected {
     height: 0.2rem;
     width: 80%;
     background-image: linear-gradient(to right, white, 20%, #4263eb, 80%, white);
-}
-
-.themes {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 7rem;
-
-    margin-top: 5rem;
-}
-
-.theme {
-    color: #495057;
-    position: relative;
-
-    background-color: aquamarine;
-    padding: 3rem;
-    border-radius: 1rem;
-}
-
-.theme-info, .theme-description {
-    margin-left: 0.5rem;
-}
-
-.theme h2 {
-    font-size: 3rem;
-    text-transform: uppercase;
-    color: #495057;
-
-    margin-bottom: 1rem;
-}
-
-.theme-description {
-    font-size: 1.7rem;
-    line-height: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.theme-consultant, .theme-student, .theme-section {
-    font-size: 1.7rem;
-    margin: 1rem 0;
-}
-
-.theme-state {
-    position: absolute;
-    bottom: 3rem;
-    right: 3rem;
-    padding: 0.8rem;
-    border-radius: 0.7rem;
-
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.available {
-    color: #00c400;
-    border: solid 0.2rem #00c400;
-}
-
-.unavailable {
-    color: red;
-    border: solid 0.2rem red;
-}
-
-.pending {
-    color: orange;
-    border: solid 0.2rem orange;
 }

@@ -1,0 +1,7 @@
+.statistics {
+    align-self: flex-start;
+}
+
+.statistics * {
+    font-size: 1.7rem;
+}

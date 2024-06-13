@@ -13,19 +13,19 @@
     <select id="consultantSelect" class="search-form--item" name="consultant">
         <option class="default-option" value="all">Konzultant</option>
         {% for consultant in consultants %}
-        <option class="value" value="{{ consultant.name }} {{ consultant.surname }}">{{ consultant.name }} {{ consultant.surname }}</option>
+        <option class="value" value="{{ consultant.id }}">{{ consultant.name }} {{ consultant.surname }}</option>
         {% endfor %}
     </select>
     <select id="sectionSelect" class="search-form--item" name="section">
         <option class="default-option" value="all">Odbor</option>
         {% for section in sections %}
-        <option class="value" value="{{ section.0 }}">{{ forloop.counter }} - {{ section.1 }}</option>
+        <option class="value" value="{{ section.id }}">{{ section.name }}</option>
         {% endfor %}
     </select>
     <select id="stateSelect" class="search-form--item" name="state">
         <option class="default-option" value="all">Stav</option>
         {% for state in states %}
-        <option class="value" value="{{ state.0 }}">{{ state.1 }}</option>
+        <option class="value" value="{{ state.id }}">{{ state.name }}</option>
         {% endfor %}
     </select>
     <button id="resetBtn"></button>
@@ -37,19 +37,25 @@
         <h2 class="theme-name">{{ theme.name }}</h2>
         <p class="theme-description">{{ theme.description }}</p>
         <div class="theme-info">
-            <p class="theme-section" data-value="{{ theme.section }}"><strong>Odbor: </strong>{{ theme.section }}</p>
-            <p class="theme-consultant" data-value="{{ theme.consultant }}"><strong>Konzultant: </strong>{{ theme.consultant }}</p>
-            <p class="theme-student"><strong>Študent: </strong>{{ theme.student }}</p>
+            <p class="theme-section" data-id="{{ theme.section.id }}"><strong>Odbor: </strong>{{ theme.section }}</p>
+            <p class="theme-consultant" data-id="{{ theme.consultant.id }}"><strong>Konzultant: </strong><a class="person-anchor" href="{% url "teacher" id=theme.consultant.id %}">{{ theme.consultant }}</a></p>
+            <p class="theme-student"><strong>Študent: </strong>
+                {% if theme.student %}
+                <a class="person-anchor" href="{% url "student" id=theme.student.id %}">{{ theme.student }}</a>
+                {% else %}
+                -------
+                {% endif %}
+            </p>
         </div>
         <p class="theme-state 
-            {% if theme.state == "Dostupné" %}
+            {% if theme.state.name == "Dostupné" %}
             available
-            {% elif theme.state == "Nedostupné" %}
+            {% elif theme.state.name == "Nedostupné" %}
             unavailable
             {% else %}
             pending
             {% endif %}" 
-        data-value="{{ theme.state }}">{{ theme.state }}</p>
+        data-id="{{ theme.state.id }}">{{ theme.state }}</p>
     </div>
     {% endfor %}
 </div>

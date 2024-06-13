@@ -15,13 +15,20 @@ body {
     font-family: 'Rubik', sans-serif;
     position: relative;
 
+    padding-right: 1rem;
+    padding-top: 1rem;
+
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     min-height: 100vh;
+
+    background-image: linear-gradient(to bottom right, #4263eb, #12b886);
 }
 
 header {
-    background-color: #4263eb;
+    background-color: transparent;
     padding: 2rem 3rem;
 }
 
@@ -31,35 +38,29 @@ a {
 }
 
 main {
-    margin-top: 5rem;
-    margin-bottom: 25rem;
     padding: 0 10rem;
     color: black;
+
+    min-height: 80%;
+    position: relative;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     flex-grow: 1;
+
+    min-height: 80vh;
+
+    background-color: white;
+
+    border-radius: 0.7rem;
 }
 
-.decoration-line {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 0.7rem;
-    width: 100%;
-
-    background-image: linear-gradient(to right, #4263eb, 80%, #12b886);
-}
-
-.decoration-line2 {
-    background-color: #12b886;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 0.7rem;
+.flex-wrapper {
+    display: flex;
+    flex-grow: 1;
 }
 
 
@@ -106,13 +107,14 @@ main {
 }
 
 .navbar-list--item {
-    padding: 1rem 6rem;
+    padding: 1rem 4rem;
 
     border-radius: 1rem;
     border: transparent 0.2rem solid;
 
     text-transform: uppercase;
     font-size: 1.5rem;
+    text-align: center;
 
     margin-bottom: 2rem;
 
@@ -125,15 +127,95 @@ main {
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-
     width: 100%;
-
-    background-image: linear-gradient(to right, #5f3dc4, 80%, #12b886);
 
     padding: 4rem;
 
     text-align: center;
     font-size: 1.5rem;
+
+    background-color: transparent;
+}
+
+/* index.html */
+
+.themes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7rem;
+
+    margin-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.theme {
+    color: #495057;
+    position: relative;
+
+    max-width: 35vw;
+
+    background-color: aquamarine;
+    padding: 3rem;
+    border-radius: 1rem;
+    overflow-wrap: break-word;
+}
+
+
+.theme-info,
+.theme-description {
+    margin-left: 0.5rem;
+}
+
+.theme h2 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #495057;
+
+    margin-bottom: 1rem;
+}
+
+.theme-description {
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+    margin-bottom: 1rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.theme-consultant,
+.theme-student,
+.theme-section {
+    font-size: 1.7rem;
+    margin: 1rem 0;
+}
+
+.person-anchor {
+    color: #495057;
+    text-decoration: underline;
+}
+
+.theme-state {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    padding: 0.8rem;
+    border-radius: 0.7rem;
+
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.available {
+    color: #00c400;
+    border: solid 0.2rem #00c400;
+}
+
+.unavailable {
+    color: red;
+    border: solid 0.2rem red;
+}
+
+.pending {
+    color: orange;
+    border: solid 0.2rem orange;
 }

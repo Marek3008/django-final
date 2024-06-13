@@ -1,0 +1,17 @@
+{% extends "layouts/app.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "css/statistics.css" %}">
+{% endblock  %}
+
+{% block content %}
+<div class="statistics">
+    <p>Počet učiteľov: {{ teachers }}</p>
+    <p>Počet žiakov: {{ students }}</p>
+    <p>Počet tém: {{ themes }}</p>
+    <p>Počet dostupných tém: {{ availableThemes }}</p>
+    <p>Počet nedostupných tém: {{ unavailableThemes }}</p>
+    <p>Počet čakajúcich tém: {{ pendingThemes }}</p>
+</div>
+{% endblock  %}
